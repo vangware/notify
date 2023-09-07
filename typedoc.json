@@ -1,0 +1,11 @@
+{
+	"$schema": "https://typedoc.org/schema.json",
+	"cname": "notify.vangware.com",
+	"entryPoints": [
+		"./src"
+	],
+	"extends": [
+		"@vangware/configs/typedoc.json"
+	],
+	"name": "@vangware/notify"
+}

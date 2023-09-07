@@ -1,0 +1,69 @@
+{
+	"name": "@vangware/notify",
+	"description": "📣 Minimalistic Pub/Sub implementation",
+	"version": "1.0.0",
+	"author": {
+		"email": "hello@vangware.com",
+		"name": "Vangware",
+		"url": "https://vangware.com"
+	},
+	"bugs": {
+		"email": "issues@vangware.com",
+		"url": "https://github.com/vangware/notify/issues"
+	},
+	"dependencies": {
+		"@vangware/iterables": "^3.1.11",
+		"@vangware/predicates": "^2.1.27",
+		"@vangware/utils": "^10.1.13"
+	},
+	"devDependencies": {
+		"@evilmartians/lefthook": "^1.4.10",
+		"@types/node": "^20.5.9",
+		"@vangware/configs": "^5.1.5",
+		"@vangware/test": "^10.3.20",
+		"@vangware/types": "^6.2.3",
+		"c8": "^8.0.1",
+		"eslint": "^8.48.0",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^3.0.3",
+		"rimraf": "^5.0.1",
+		"tsx": "^3.12.8",
+		"typescript": "^5.2.2"
+	},
+	"engines": {
+		"node": ">=20",
+		"pnpm": ">=8"
+	},
+	"exports": {
+		".": "./dist/index.js",
+		"./*": "./dist/*"
+	},
+	"files": [
+		"dist"
+	],
+	"homepage": "https://github.com/vangware/notify#readme",
+	"keywords": [
+		"typescript",
+		"vangware"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vangware/notify.git"
+	},
+	"scripts": {
+		"clean": "rimraf ./dist",
+		"compile": "tsc --project ./tsconfig.dist.json",
+		"git:pre-push": "run-s --print-label clean pre-compile lint test",
+		"lint": "eslint {src,tests}",
+		"lint:fix": "eslint {src,tests} --fix",
+		"pre-compile": "tsc --noEmit --project tsconfig.dist.json",
+		"prepare": "lefthook install",
+		"prepublishOnly": "run-s --print-label clean compile prettify",
+		"prettify": "prettier --ignore-path=.prettierignore --log-level=warn --write './dist/**/*.{js,ts}'",
+		"test": "NODE_OPTIONS='--loader tsx --no-warnings' c8 test"
+	},
+	"sideEffects": false,
+	"type": "module",
+	"types": "./dist/index.d.ts"
+}
