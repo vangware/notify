@@ -24,15 +24,15 @@ Import it and use it:
 ```typescript
 import { broadcast } from "@vangware/notify";
 
-const exampleBroadcast = broadcast<{ event: string }>();
+const { emit, on } = broadcast<{ event: string }>();
 
-const onEvent = exampleBroadcast.on("event");
-const unsubscribe = onEvent(console.log);
+const onEvent = on("event");
+const offEvent = onEvent(console.log);
 
-const emitEvent = exampleBroadcast.emit("event");
+const emitEvent = emit("event");
 emitEvent("Hello world 1"); // Logs "Hello world 1"
 emitEvent("Hello world 2"); // Logs "Hello world 2"
-unsubscribe();
+offEvent();
 emitEvent("Nope"); // Nothing happens
 ```
 
@@ -43,15 +43,15 @@ Import `@vangware/notify` using the `npm:` prefix, and use it directly:
 ```typescript
 import { broadcast } from "npm:@vangware/notify";
 
-const exampleBroadcast = broadcast<{ event: string }>();
+const { emit, on } = broadcast<{ event: string }>();
 
-const onEvent = exampleBroadcast.on("event");
-const unsubscribe = onEvent(console.log);
+const onEvent = on("event");
+const offEvent = onEvent(console.log);
 
-const emitEvent = exampleBroadcast.emit("event");
+const emitEvent = emit("event");
 emitEvent("Hello world 1"); // Logs "Hello world 1"
 emitEvent("Hello world 2"); // Logs "Hello world 2"
-unsubscribe();
+offEvent();
 emitEvent("Nope"); // Nothing happens
 ```
 
@@ -63,15 +63,15 @@ Import `@vangware/notify` using [esm.sh][esm.sh], and use it directly:
 <script type="module">
 	import { broadcast } from "https://esm.sh/@vangware/notify";
 
-	const exampleBroadcast = broadcast<{ event: string }>();
+	const { emit, on } = broadcast<{ event: string }>();
 
-	const onEvent = exampleBroadcast.on("event");
-	const unsubscribe = onEvent(console.log);
+	const onEvent = on("event");
+	const offEvent = onEvent(console.log);
 
-	const emitEvent = exampleBroadcast.emit("event");
+	const emitEvent = emit("event");
 	emitEvent("Hello world 1"); // Logs "Hello world 1"
 	emitEvent("Hello world 2"); // Logs "Hello world 2"
-	unsubscribe();
+	offEvent();
 	emitEvent("Nope"); // Nothing happens
 </script>
 ```

@@ -9,11 +9,11 @@ import { on } from "./on.js";
  *
  * @example
  * ```typescript
- * const broadcast = broadcast<{ event: string }>();
- * const unsubscribe = broadcast.on("event")(console.log);
- * broadcast.emit("event")("Hello world"); // Logs "Hello world"
- * unsubscribe();
- * broadcast.emit("event")("Nope"); // Nothing happens
+ * const { emit, on } = broadcast<{ event: string }>();
+ * const off = on("event")(console.log);
+ * emit("event")("Hello world"); // Logs "Hello world"
+ * off();
+ * emit("event")("Nope"); // Nothing happens
  * ```
  * @param eventRegistry Optional record of event names mapped to an array of
  * listeners.
