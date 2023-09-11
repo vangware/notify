@@ -14,9 +14,9 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.js";
  * const eventRegistry = {};
  * const onRegistry = on(eventRegistry); // 👈🏻 You are here
  * const onEvent = onRegistry("event");
- * const unsubscribe = onEvent(() => console.log("event called"));
+ * const offEvent = onEvent(() => console.log("event called"));
  * emit(eventRegistry)("event")(); // Logs "event called"
- * unsubscribe();
+ * offEvent();
  * emit(eventRegistry)("event")(); // Nothing happens
  * ```
  * @param eventRegistry Record of event names mapped to an array of listeners.
@@ -35,9 +35,9 @@ export const on =
 	 * const eventRegistry = {};
 	 * const onRegistry = on(eventRegistry);
 	 * const onEvent = onRegistry("event"); // 👈🏻 You are here
-	 * const unsubscribe = onEvent(() => console.log("event called"));
+	 * const offEvent = onEvent(() => console.log("event called"));
 	 * emit(eventRegistry)("event")(); // Logs "event called"
-	 * unsubscribe();
+	 * offEvent();
 	 * emit(eventRegistry)("event")(); // Nothing happens
 	 * ```
 	 * @param event Event name (has to be a valid key of the `eventRegistry`).
@@ -53,9 +53,9 @@ export const on =
 	 * const eventRegistry = {};
 	 * const onRegistry = on(eventRegistry);
 	 * const onEvent = onRegistry("event");
-	 * const unsubscribe = onEvent(() => console.log("event called")); // 👈🏻 You are here
+	 * const offEvent = onEvent(() => console.log("event called")); // 👈🏻 You are here
 	 * emit(eventRegistry)("event")(); // Logs "event called"
-	 * unsubscribe();
+	 * offEvent();
 	 * emit(eventRegistry)("event")(); // Nothing happens
 	 * ```
 	 * @param listener Listener to be called when the `event` is emitted.
