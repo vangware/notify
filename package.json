@@ -43,6 +43,11 @@
 	],
 	"homepage": "https://github.com/vangware/notify#readme",
 	"keywords": [
+		"eventbus",
+		"javascript",
+		"messaging",
+		"minimalistic",
+		"pubsub",
 		"typescript",
 		"vangware"
 	],
