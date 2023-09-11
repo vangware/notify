@@ -7,5 +7,5 @@
 	"extends": [
 		"@vangware/configs/typedoc.json"
 	],
-	"name": "@vangware/notify"
+	"name": "Notify by Vangware"
 }
